@@ -1,0 +1,45 @@
+---
+
+title       : Dataset Exploration
+substitle   : Perusing 'datasets' R Library
+author      : Conrad Warmbold
+job         : 
+framework   : io2012
+highlighter : highlight.js
+widgets     : []
+mode        : selfcontained
+ 
+--- 
+
+The 'datasets' library contains the following datasets -- which one should you use?
+
+```{r, echo=FALSE}
+library(datasets)
+datasets <- sapply(subset(data.frame(data()$results), Package=='datasets')$Item, as.character)
+for (i in 1:length(datasets)) {
+    datasets[i] <- unlist(strsplit(datasets[i], ' '))[1] # Strip trailing (explanation)
+}
+print(datasets)
+```
+
+---
+
+While learning R, I've created an app to help you explore each of the 'datasets' items.  From dropdowns, you can select both a dataset and a function to apply to that dataset:
+
+```{r, echo=FALSE}
+c('summary', 'str', 'head', 'tail', 'print', 'class', 'names')
+```
+
+---
+
+Additionally, when a dataset is selected, its default table and plot are rendered.  Datasets that don't render directly are manually coerced as shown below:
+
+```{r, eval=FALSE}
+if (class(dataset) %in% c('ts', 'list', 'table', 'factor', 'numeric', 'character')) { 
+    dataset <- as.data.frame(dataset)
+}
+```
+
+---
+
+Visit the [Data Exploration](https://cradbold.shinyapps.io/devdataprod-005/) now to see it in action!
