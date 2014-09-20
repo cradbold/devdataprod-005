@@ -3,7 +3,7 @@ library(datasets)
 
 shinyServer(function(input, output) {
     datasetInput <- reactive({
-        get(input$dataset)
+        dataset <- get(input$dataset)
     })
     output$funct <- renderPrint({
         dataset <- datasetInput()
@@ -15,5 +15,21 @@ shinyServer(function(input, output) {
                'print'=print(dataset),
                'class'=class(dataset),
                'names'=names(dataset))
+    })
+    output$tab <- renderTable({
+        dataset <- datasetInput()
+        c <- class(dataset)
+        if (c %in% c('ts', 'list', 'table', 'factor', 'numeric', 'character')) { 
+            dataset <- as.data.frame(dataset)
+        }
+        return(dataset)
+    })
+    output$plt <- renderPlot({
+        dataset <- datasetInput()
+        c <- class(dataset)
+        if (c %in% c('list', 'character')) { 
+            dataset <- as.data.frame(dataset)
+        }
+        return(plot(dataset))
     })
 })
