@@ -1,1 +1,180 @@
-Github page
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dataset Exploration</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Dataset Exploration">
+  <meta name="author" content="Conrad Warmbold">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Dataset Exploration</h1>
+    <h2></h2>
+    <p>Conrad Warmbold<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <p>The &#39;datasets&#39; library contains the following datasets -- which one should you use?</p>
+
+<pre><code>##   [1] &quot;AirPassengers&quot;         &quot;BJsales&quot;              
+##   [3] &quot;BJsales.lead&quot;          &quot;BOD&quot;                  
+##   [5] &quot;CO2&quot;                   &quot;ChickWeight&quot;          
+##   [7] &quot;DNase&quot;                 &quot;EuStockMarkets&quot;       
+##   [9] &quot;Formaldehyde&quot;          &quot;HairEyeColor&quot;         
+##  [11] &quot;Harman23.cor&quot;          &quot;Harman74.cor&quot;         
+##  [13] &quot;Indometh&quot;              &quot;InsectSprays&quot;         
+##  [15] &quot;JohnsonJohnson&quot;        &quot;LakeHuron&quot;            
+##  [17] &quot;LifeCycleSavings&quot;      &quot;Loblolly&quot;             
+##  [19] &quot;Nile&quot;                  &quot;Orange&quot;               
+##  [21] &quot;OrchardSprays&quot;         &quot;PlantGrowth&quot;          
+##  [23] &quot;Puromycin&quot;             &quot;Seatbelts&quot;            
+##  [25] &quot;Theoph&quot;                &quot;Titanic&quot;              
+##  [27] &quot;ToothGrowth&quot;           &quot;UCBAdmissions&quot;        
+##  [29] &quot;UKDriverDeaths&quot;        &quot;UKgas&quot;                
+##  [31] &quot;USAccDeaths&quot;           &quot;USArrests&quot;            
+##  [33] &quot;USJudgeRatings&quot;        &quot;USPersonalExpenditure&quot;
+##  [35] &quot;VADeaths&quot;              &quot;WWWusage&quot;             
+##  [37] &quot;WorldPhones&quot;           &quot;ability.cov&quot;          
+##  [39] &quot;airmiles&quot;              &quot;airquality&quot;           
+##  [41] &quot;anscombe&quot;              &quot;attenu&quot;               
+##  [43] &quot;attitude&quot;              &quot;austres&quot;              
+##  [45] &quot;beaver1&quot;               &quot;beaver2&quot;              
+##  [47] &quot;cars&quot;                  &quot;chickwts&quot;             
+##  [49] &quot;co2&quot;                   &quot;crimtab&quot;              
+##  [51] &quot;discoveries&quot;           &quot;esoph&quot;                
+##  [53] &quot;euro&quot;                  &quot;euro.cross&quot;           
+##  [55] &quot;eurodist&quot;              &quot;faithful&quot;             
+##  [57] &quot;fdeaths&quot;               &quot;freeny&quot;               
+##  [59] &quot;freeny.x&quot;              &quot;freeny.y&quot;             
+##  [61] &quot;infert&quot;                &quot;iris&quot;                 
+##  [63] &quot;iris3&quot;                 &quot;islands&quot;              
+##  [65] &quot;ldeaths&quot;               &quot;lh&quot;                   
+##  [67] &quot;longley&quot;               &quot;lynx&quot;                 
+##  [69] &quot;mdeaths&quot;               &quot;morley&quot;               
+##  [71] &quot;mtcars&quot;                &quot;nhtemp&quot;               
+##  [73] &quot;nottem&quot;                &quot;npk&quot;                  
+##  [75] &quot;occupationalStatus&quot;    &quot;precip&quot;               
+##  [77] &quot;presidents&quot;            &quot;pressure&quot;             
+##  [79] &quot;quakes&quot;                &quot;randu&quot;                
+##  [81] &quot;rivers&quot;                &quot;rock&quot;                 
+##  [83] &quot;sleep&quot;                 &quot;stack.loss&quot;           
+##  [85] &quot;stack.x&quot;               &quot;stackloss&quot;            
+##  [87] &quot;state.abb&quot;             &quot;state.area&quot;           
+##  [89] &quot;state.center&quot;          &quot;state.division&quot;       
+##  [91] &quot;state.name&quot;            &quot;state.region&quot;         
+##  [93] &quot;state.x77&quot;             &quot;sunspot.month&quot;        
+##  [95] &quot;sunspot.year&quot;          &quot;sunspots&quot;             
+##  [97] &quot;swiss&quot;                 &quot;treering&quot;             
+##  [99] &quot;trees&quot;                 &quot;uspop&quot;                
+## [101] &quot;volcano&quot;               &quot;warpbreaks&quot;           
+## [103] &quot;women&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <article data-timings="">
+    <p>While learning R, I&#39;ve created an app to help you explore each of the &#39;datasets&#39; items.  From dropdowns, you can select both a dataset and a function to apply to that dataset:</p>
+
+<pre><code>## [1] &quot;summary&quot; &quot;str&quot;     &quot;head&quot;    &quot;tail&quot;    &quot;print&quot;   &quot;class&quot;   &quot;names&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <article data-timings="">
+    <p>Additionally, when a dataset is selected, its default table and plot are rendered.  Datasets that don&#39;t render directly are manually coerced as shown below:</p>
+
+<pre><code class="r">if (class(dataset) %in% c(&#39;ts&#39;, &#39;list&#39;, &#39;table&#39;, &#39;factor&#39;, &#39;numeric&#39;, &#39;character&#39;)) { 
+    dataset &lt;- as.data.frame(dataset)
+}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <article data-timings="">
+    <p>Visit the <a href="https://cradbold.shinyapps.io/devdataprod-005/">Data Exploration</a> now to see it in action!</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title=''>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title=''>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title=''>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title=''>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
